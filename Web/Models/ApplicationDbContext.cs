@@ -10,7 +10,7 @@ namespace Web.Models
 {
     public class ApplicationDbContext
     {
-        private string ConnectionString = "https://spreadsheets.google.com/feeds/list/1QMLAbUgfLUtgZN4FCFY4aWc5eZFznXLTUEpKEhTPzOs/od6/public/values?alt=json";
+        private string ConnectionString = "https://spreadsheets.google.com/feeds/list/1uV1KNpwI7BoCGk2hLXda10eZcKl_ViD2gtILVujbRXk/od6/public/values?alt=json";
         public ArticleModel[] GetNews()
         {
             List<ArticleModel> books = new List<ArticleModel>();

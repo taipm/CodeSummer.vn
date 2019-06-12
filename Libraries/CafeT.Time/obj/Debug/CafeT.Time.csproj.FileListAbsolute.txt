@@ -9,3 +9,9 @@ C:\GitHub\SachNoiHay.Club\Libraries\CafeT.Time\bin\Debug\CafeT.Time.pdb
 C:\GitHub\SachNoiHay.Club\Libraries\CafeT.Time\obj\Debug\CafeT.Time.csproj.CoreCompileInputs.cache
 C:\GitHub\SachNoiHay.Club\Libraries\CafeT.Time\obj\Debug\CafeT.Time.dll
 C:\GitHub\SachNoiHay.Club\Libraries\CafeT.Time\obj\Debug\CafeT.Time.pdb
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Time\bin\Debug\CafeT.Time.dll
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Time\bin\Debug\CafeT.Time.pdb
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Time\obj\Debug\CafeT.Time.csprojAssemblyReference.cache
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Time\obj\Debug\CafeT.Time.csproj.CoreCompileInputs.cache
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Time\obj\Debug\CafeT.Time.dll
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Time\obj\Debug\CafeT.Time.pdb

@@ -26,3 +26,17 @@ C:\GitHub\SachNoiHay.Club\Libraries\CafeT.Text\obj\Debug\CafeT.Text.csproj.CoreC
 C:\GitHub\SachNoiHay.Club\Libraries\CafeT.Text\obj\Debug\CafeT.Text.csproj.CopyComplete
 C:\GitHub\SachNoiHay.Club\Libraries\CafeT.Text\obj\Debug\CafeT.Text.dll
 C:\GitHub\SachNoiHay.Club\Libraries\CafeT.Text\obj\Debug\CafeT.Text.pdb
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Text\bin\Debug\CafeT.Text.dll.config
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Text\bin\Debug\CafeT.Text.dll
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Text\bin\Debug\CafeT.Text.pdb
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Text\bin\Debug\CafeT.Enumerable.dll
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Text\bin\Debug\HtmlAgilityPack.dll
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Text\bin\Debug\CafeT.Enumerable.pdb
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Text\bin\Debug\CafeT.Enumerable.dll.config
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Text\bin\Debug\HtmlAgilityPack.pdb
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Text\bin\Debug\HtmlAgilityPack.xml
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Text\obj\Debug\CafeT.Text.csprojAssemblyReference.cache
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Text\obj\Debug\CafeT.Text.csproj.CoreCompileInputs.cache
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Text\obj\Debug\CafeT.Text.csproj.CopyComplete
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Text\obj\Debug\CafeT.Text.dll
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Text\obj\Debug\CafeT.Text.pdb
