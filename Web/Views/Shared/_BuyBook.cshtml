@@ -1,0 +1,35 @@
+﻿@model Web.ModelViews.BuyBookView
+
+@using CafeT.Text
+<p></p>
+@if (Model != null && Model.BuyBookUrl.IsUrl())
+{
+    <div class="card" style="width: 25rem;">
+        <div class="alert alert-primary" role="alert">
+            ỦNG HỘ TÁC GIẢ BẰNG CÁCH MUA SÁCH GỐC
+        </div>
+        @if (Model.BookImageUrl != null && Model.BookImageUrl.IsImageUrl())
+        {
+            <img class="card-img-top" src="@Model.BookImageUrl" alt="@Model.BookTilte">
+        }
+
+        <div class="card-body">
+            <h5 class="card-title">MUA SÁCH GỐC</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Mua sách gốc là để tri ân tác giả - Người đã mang cho ta tri thức</h6>
+            <p class="card-text">MUA SÁCH GỐC</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="@Model.BuyBookUrl" class="btn btn-danger">Tại đây</a>
+                </div>
+                <div class="col-md-4">
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="hosted_button_id" value="EA4HT73QJHJV6">
+                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}

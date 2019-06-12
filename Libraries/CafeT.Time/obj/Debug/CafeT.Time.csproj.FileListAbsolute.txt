@@ -1,0 +1,11 @@
+C:\GitHub\GoogleDev.Club\Libraries\CafeT.Time\bin\Debug\CafeT.Time.dll
+C:\GitHub\GoogleDev.Club\Libraries\CafeT.Time\bin\Debug\CafeT.Time.pdb
+C:\GitHub\GoogleDev.Club\Libraries\CafeT.Time\obj\Debug\CafeT.Time.csproj.CoreCompileInputs.cache
+C:\GitHub\GoogleDev.Club\Libraries\CafeT.Time\obj\Debug\CafeT.Time.dll
+C:\GitHub\GoogleDev.Club\Libraries\CafeT.Time\obj\Debug\CafeT.Time.pdb
+C:\GitHub\GoogleDev.Club\Libraries\CafeT.Time\obj\Debug\CafeT.Time.csprojAssemblyReference.cache
+C:\GitHub\SachNoiHay.Club\Libraries\CafeT.Time\bin\Debug\CafeT.Time.dll
+C:\GitHub\SachNoiHay.Club\Libraries\CafeT.Time\bin\Debug\CafeT.Time.pdb
+C:\GitHub\SachNoiHay.Club\Libraries\CafeT.Time\obj\Debug\CafeT.Time.csproj.CoreCompileInputs.cache
+C:\GitHub\SachNoiHay.Club\Libraries\CafeT.Time\obj\Debug\CafeT.Time.dll
+C:\GitHub\SachNoiHay.Club\Libraries\CafeT.Time\obj\Debug\CafeT.Time.pdb

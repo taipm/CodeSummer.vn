@@ -1,0 +1,14 @@
+C:\GitHub\GoogleDev.Club\Libraries\CafeT.Text\bin\Release\CafeT.Text.dll.config
+C:\GitHub\GoogleDev.Club\Libraries\CafeT.Text\bin\Release\CafeT.Text.dll
+C:\GitHub\GoogleDev.Club\Libraries\CafeT.Text\bin\Release\CafeT.Text.pdb
+C:\GitHub\GoogleDev.Club\Libraries\CafeT.Text\bin\Release\CafeT.Enumerable.dll
+C:\GitHub\GoogleDev.Club\Libraries\CafeT.Text\bin\Release\HtmlAgilityPack.dll
+C:\GitHub\GoogleDev.Club\Libraries\CafeT.Text\bin\Release\CafeT.Enumerable.pdb
+C:\GitHub\GoogleDev.Club\Libraries\CafeT.Text\bin\Release\CafeT.Enumerable.dll.config
+C:\GitHub\GoogleDev.Club\Libraries\CafeT.Text\bin\Release\HtmlAgilityPack.pdb
+C:\GitHub\GoogleDev.Club\Libraries\CafeT.Text\bin\Release\HtmlAgilityPack.xml
+C:\GitHub\GoogleDev.Club\Libraries\CafeT.Text\obj\Release\CafeT.Text.csprojAssemblyReference.cache
+C:\GitHub\GoogleDev.Club\Libraries\CafeT.Text\obj\Release\CafeT.Text.csproj.CoreCompileInputs.cache
+C:\GitHub\GoogleDev.Club\Libraries\CafeT.Text\obj\Release\CafeT.Text.csproj.CopyComplete
+C:\GitHub\GoogleDev.Club\Libraries\CafeT.Text\obj\Release\CafeT.Text.dll
+C:\GitHub\GoogleDev.Club\Libraries\CafeT.Text\obj\Release\CafeT.Text.pdb
