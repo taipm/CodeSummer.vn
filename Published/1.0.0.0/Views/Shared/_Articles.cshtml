@@ -29,9 +29,19 @@
                         }
                     </div>
                     <div class="col-md-8">
-                        <h5>
-                            @Html.ActionLink(item.Title, "Details", "Articles", new { id = item.GenerateSlug() }, null)
-                        </h5>
+                        @if (item.ContentUrl.Contains("google.com") || item.ContentUrl.Contains("youtube.com"))
+                        {
+                            <h5>
+                                @Html.ActionLink(item.Title, "Details", "Articles", new { id = item.GenerateSlug() }, null)
+                            </h5>
+                        }
+                        else
+                        {
+                            <h5>
+                                <a href="@item.DocumentId" title="@item.Title">@item.Title</a>
+                                @*@Html.ActionLink(item.Title, "Details", "Articles", new { id = item.GenerateSlug() }, null)*@
+                            </h5>
+                        }
                         <hr />
                         <p>
                             @if (item.CreatedBy != null && item.CreatedBy.Length > 0)
@@ -45,7 +55,7 @@
                             @Html.Raw(" on: " + item.CreatedDate.ToString())
                         </p>
 
-                        
+
                         <p class="post-desc">
                             @if (item.Description.IsYouTubeWatchUrl())
                             {
@@ -60,33 +70,33 @@
                             }
                             else if (item.Description != null)
                             {
-                                <p class="text-justify">
-                                    @Html.Raw(item.Description.Replace(@"\n", "<br />").Replace(@"\", ""))
-                                </p>
-                            }
+                            <p class="text-justify">
+                                @Html.Raw(item.Description.Replace(@"\n", "<br />").Replace(@"\", ""))
+                            </p>
+                        }
 
-                        </p>
-                        @if (!item.ContentUrl.GetDomain().Contains("google.com"))
+                            </p>
+                            @if (!item.ContentUrl.GetDomain().Contains("google.com"))
                             {
                                 <p>Nguồn: @Html.Raw(item.ContentUrl.GetDomain())</p>
                             }
 
-                                <p>
-                                    @if (item.Tags != null && item.Tags.Count() > 0)
+                            <p>
+                                @if (item.Tags != null && item.Tags.Count() > 0)
+                                {
+                                    @Html.Raw("Từ khóa: ")
+                                    foreach (string tag in item.Tags)
                                     {
-                                        @Html.Raw("Từ khóa: ")
-                                        foreach (string tag in item.Tags)
+                                        if (tag.Length > 0)
                                         {
-                                            if (tag.Length > 0)
-                                            {
-                                                <span class="text-danger">@Html.ActionLink(tag + "; ", "Search", "Articles", new { keyWords = tag }, null) </span>
-                                            }
-
+                                            <span class="text-danger">@Html.ActionLink(tag + "; ", "Search", "Articles", new { keyWords = tag }, null) </span>
                                         }
-                                    }
 
-                                </p>
-                    </div>
+                                    }
+                                }
+
+                            </p>
+                        </div>
                 </div>
             </li>
         }

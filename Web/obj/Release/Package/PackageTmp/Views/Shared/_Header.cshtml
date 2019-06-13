@@ -1,5 +1,5 @@
-﻿
-<img src="~/Content/Images/Logo.png" style="margin-bottom:5px" width="350" height="200"/>
+﻿@*<img src="~/Content/Images/Logo.png" style="margin-bottom:5px" width="350" height="200"/>*@
+<img src="@ViewBag.Logo" style="margin-bottom:5px" width="350" height="200"/>
 <nav class="navbar navbar-expand-lg navbar navbar-dark bg-success">
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse4">
         <span class="navbar-toggler-icon"></span>
@@ -11,6 +11,6 @@
             <a href="~/books/index" class="nav-item nav-link">Books</a>
             <a href="~/home/about" class="nav-item nav-link">About</a>
         </div>
-       @Html.Partial("_SearchBox")
+        @Html.Partial("_SearchBox")
     </div>
 </nav>

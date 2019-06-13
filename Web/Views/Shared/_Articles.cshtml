@@ -29,7 +29,7 @@
                         }
                     </div>
                     <div class="col-md-8">
-                        @if (item.ContentUrl.Contains("google.com"))
+                        @if (item.ContentUrl.Contains("google.com") || item.ContentUrl.Contains("youtube.com"))
                         {
                             <h5>
                                 @Html.ActionLink(item.Title, "Details", "Articles", new { id = item.GenerateSlug() }, null)
