@@ -1,0 +1,95 @@
+﻿@model Web.ModelViews.ArticleView
+@using CafeT.Text
+
+<style>
+    a {
+        font-family: FontAwesome, sans-serif !important;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 100;
+        line-height: 20px;
+        display: block;
+    }
+</style>
+<div class="row">
+    <div class="col-md-4">
+        @if (Model.BookImageUrl != null && Model.BookImageUrl.IsImageUrl())
+        {
+            <img src="@Model.BookImageUrl" class="img-fluid" />
+        }
+        else if (Model.ImageUrl.IsImageUrl())
+        {
+            <img src="@Model.ImageUrl" class="img-fluid" />
+        }
+        else
+        {
+            <img src="~/Content/Images/Logo.png" class="img-fluid" />
+        }
+    </div>
+    <div class="col-md-8">
+        @if (Model.ContentUrl.Contains("google.com") || Model.ContentUrl.Contains("youtube.com"))
+        {
+            <h5>
+                @Html.ActionLink(Model.Title, "Details", "Articles", new { id = Model.GenerateSlug() }, null)
+            </h5>
+        }
+        else
+        {
+            <h5>
+                <a href="@Model.DocumentId" title="@Model.Title" 
+                   style="font-family:'Times New Roman', Times, serif">
+                @Model.Title</a>
+            </h5>
+        }
+
+    </div>
+    <div class="container">
+        <p>
+            @if (Model.CreatedBy != null && Model.CreatedBy.Length > 0)
+            {
+                @Html.Raw("Post by: ") <span class="text-danger">@Model.CreatedBy</span>
+            }
+            else
+            {
+                @Html.Raw("Post by: ") <span class="text-danger">GoogleDev.Club</span>
+            }
+            @Html.Raw(" on: " + Model.CreatedDate.ToString())
+        </p>
+
+
+        <p class="post-desc">
+            @if (Model.Description.IsYouTubeWatchUrl())
+            {
+
+
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-Model"
+                            src="https://www.youtube.com/embed/@Model.DocumentId"
+                            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                </div>
+            }
+
+
+        </p>
+
+
+        <p>
+            @if (Model.Tags != null && Model.Tags.Count() > 0)
+            {
+                @Html.Raw("Từ khóa: ")
+                foreach (string tag in Model.Tags)
+                {
+                    if (tag.Length > 0)
+                    {
+                        <span class="text-danger">@Html.ActionLink(tag + "; ", "Search", "Articles", new { keyWords = tag }, null) </span>
+                    }
+
+                }
+            }
+
+        </p>
+    </div>
+    
+</div>
+

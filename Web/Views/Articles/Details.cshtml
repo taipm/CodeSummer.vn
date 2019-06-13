@@ -15,7 +15,64 @@
     <meta charset="utf-8">
     @*<link rel="canonical" href="@(Model.Url != null ? Model.Url.GetLeftPart(UriPartial.Path): String.Empty)">*@
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    <style amp-boilerplate>body {-webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;-moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;-ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;animation: -amp-start 8s steps(1, end) 0s 1 normal both}@@-webkit-keyframes -amp-start {from { visibility: hidden }to { visibility: visible }}@@-moz-keyframes -amp-start {from { visibility: hidden }to { visibility: visible }}@@-ms-keyframes -amp-start {from { visibility: hidden }to { visibility: visible }}@@-o-keyframes -amp-start {from { visibility: hidden }to { visibility: visible }}@@keyframes -amp-start {from { visibility: hidden }to { visibility: visible }} </style>
+    <style amp-boilerplate>
+        body {
+            -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            animation: -amp-start 8s steps(1, end) 0s 1 normal both
+        }
+
+        @@-webkit-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @@-moz-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @@-ms-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @@-o-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @@keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+    </style>
     <noscript>
         <style amp-boilerplate>
             body {
@@ -24,11 +81,15 @@
                 -ms-animation: none;
                 animation: none;
             }
-        </style></noscript>
+        </style>
+    </noscript>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <title>@Model.Title</title>
     <meta name="keywords" content="@Model.MetaKeywords" />
     <meta name="description" content="@Model.MetaDescription" />
+    <meta property="fb:app_id" content="402944790432786" />
+    <meta property="fb:admins" content="ENIn6YdZr1L" />
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.3&appId=1544889778981563&autoLogAppEvents=1"></script>
 </head>
 <body>
     <div class="row">
@@ -36,24 +97,38 @@
             <div class="alert alert-success" role="alert">
                 <h4>@Model.Title</h4>
             </div>
-
-            @if (Model.ContentUrl.IsYouTubeWatchUrl())
-            {
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item"
-                            src="https://www.youtube.com/embed/@Model.DocumentId"
-                            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
+            <div class="row">
+                <div class="col-md-4">
+                    @if (Model.ImageUrl != null && Model.ImageUrl.IsImageUrl())
+                    {
+                        <img class="card-img-top" src="@Model.ImageUrl">
+                    }
                 </div>
-            }
-            else
-            {
-                @Html.Raw(Model.Description.Replace("\n", "<br />"))
-            }
+                <div class="col-md-8">
+                    @Html.Raw(Model.Description.Replace("\n", "<br />"))
+                </div>
+                
+            </div>
+            <p class="container">
 
-            @Html.Partial("_BuyBook", new BuyBookView(Model.Title, Model.BuyBookUrl, Model.BookImageUrl))
+                @if (Model.ContentUrl.IsYouTubeWatchUrl())
+                {
+                    <h5>MỜI CÁC BẠN XEM CLIP</h5>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item"
+                                src="https://www.youtube.com/embed/@Model.DocumentId"
+                                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                    </div>
+                }
+                else
+                {
+                    @Html.Raw(Model.Content.Replace("\n", "<br />"))
+                }
 
-            @Html.Raw(Model.Content)
+                @Html.Partial("_BuyBook", new BuyBookView(Model.Title, Model.BuyBookUrl, Model.BookImageUrl))
+            </p>
+
 
             <div id="fb-root"></div>
             <script>
@@ -67,17 +142,15 @@
 
             <!-- Your share button code -->
             <div class="fb-share-button"
-                 data-href="http://sachnoihay.club/articles/details/@Model.GenerateSlug()"
+                 data-href="http://codesummer.vn/articles/details/@Model.GenerateSlug()"
                  data-layout="button_count">
             </div>
         </div>
         <div class="col-md-4">
 
-            @*@Html.Raw("Ngày: " + Model.CreatedDate.TimeAgo())*@
-            @Html.Raw("Tác giả: " + Model.CreatedBy)<br />
-            <img src="@Model.ImageUrl" class="img-fluid" /> <br />
-            @*<script id="dsq-count-scr" src="//http-googledev-club.disqus.com/count.js" async></script>*@
-            @Html.Raw("Views: " + Model.CountViews)
+            @Html.Raw("Ngày: " + Model.CreatedDate) | @Html.Raw("Tác giả: " + Model.CreatedBy)<br />
+            
+            @*@Html.Raw("Views: " + Model.CountViews)*@
         </div>
     </div>
     @if (Model.EditLink != null)
@@ -88,14 +161,8 @@
         </p>
     }
 
-    <div class="fb-comments"
-         data-href="https://developers.facebook.com/docs/plugins/comments#configurator"
-         data-width=""
-         data-numposts="5"></div>
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous"
-            src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.3&appId=658860411226506&autoLogAppEvents=1">
-    </script>
+        <div class="fb-comments" data-href="http://codesummer.vn/articles/details/@Model.GenerateSlug()" data-width="" data-numposts="5"></div>
+    
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
 </body>
 </html>

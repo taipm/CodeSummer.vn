@@ -9,6 +9,7 @@ namespace Web.Controllers
 {
     public class BaseController : Controller
     {
+        public const int PageSize = 10;
         public BaseController()
         {
             ViewBag.Title = ConfigurationManager.AppSettings["Title"];

@@ -7,102 +7,51 @@
 <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
 <link href="~/Content/PagedList.css" rel="stylesheet" />
 
-
+<div class="card">
+    <div class="card-header">HÀNG NGÀN BÀI VIẾT</div>
+</div>
 <div id="paging">
-    <ul class="list-group">
-        @foreach (var item in Model)
-        {
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="col-md-4">
-                        @if (item.BookImageUrl != null && item.BookImageUrl.IsImageUrl())
+    @{
+        int count = 0;
+        <div class="row">
+            <div class="col-md-6">
+                @foreach (var item in Model)
+                {
+                    count++;
+                    <ul class="list-group">
+                        @if (count % 2 == 0)
                         {
-                            <img src="@item.BookImageUrl" class="img-fluid" />
+                            <li class="list-group-item">
+                                @Html.Partial("_ArticleItem", item)
+                            </li>
                         }
-                        else if (item.ImageUrl.IsImageUrl())
+
+                    </ul>
+
+                }
+            </div>
+            <div class="col-md-6">
+                @foreach (var item in Model)
+                {
+                    count++;
+                    <ul class="list-group">
+                        @if (count % 2 == 1)
                         {
-                            <img src="@item.ImageUrl" class="img-fluid" />
-                        }
-                        else
-                        {
-                            <img src="~/Content/Images/Logo.png" class="img-fluid" />
-                        }
-                    </div>
-                    <div class="col-md-8">
-                        @if (item.ContentUrl.Contains("google.com") || item.ContentUrl.Contains("youtube.com"))
-                        {
-                            <h5>
-                                @Html.ActionLink(item.Title, "Details", "Articles", new { id = item.GenerateSlug() }, null)
-                            </h5>
-                        }
-                        else
-                        {
-                            <h5>
-                                <a href="@item.DocumentId" title="@item.Title">@item.Title</a>
-                                @*@Html.ActionLink(item.Title, "Details", "Articles", new { id = item.GenerateSlug() }, null)*@
-                            </h5>
-                        }
-                        <hr />
-                        <p>
-                            @if (item.CreatedBy != null && item.CreatedBy.Length > 0)
-                            {
-                                @Html.Raw("Post by: ") <span class="text-danger">@item.CreatedBy</span>
-                            }
-                            else
-                            {
-                                @Html.Raw("Post by: ") <span class="text-danger">GoogleDev.Club</span>
-                            }
-                            @Html.Raw(" on: " + item.CreatedDate.ToString())
-                        </p>
-
-
-                        <p class="post-desc">
-                            @if (item.Description.IsYouTubeWatchUrl())
-                            {
-
-
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe class="embed-responsive-item"
-                                            src="https://www.youtube.com/embed/@item.DocumentId"
-                                            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                            allowfullscreen></iframe>
-                                </div>
-                            }
-                            else if (item.Description != null)
-                            {
-                            <p class="text-justify">
-                                @Html.Raw(item.Description.Replace(@"\n", "<br />").Replace(@"\", ""))
-                            </p>
+                            <li class="list-group-item">
+                                @Html.Partial("_ArticleItem", item)
+                            </li>
                         }
 
-                            </p>
-                            @if (!item.ContentUrl.GetDomain().Contains("google.com"))
-                            {
-                                <p>Nguồn: @Html.Raw(item.ContentUrl.GetDomain())</p>
-                            }
+                    </ul>
 
-                            <p>
-                                @if (item.Tags != null && item.Tags.Count() > 0)
-                                {
-                                    @Html.Raw("Từ khóa: ")
-                                    foreach (string tag in item.Tags)
-                                    {
-                                        if (tag.Length > 0)
-                                        {
-                                            <span class="text-danger">@Html.ActionLink(tag + "; ", "Search", "Articles", new { keyWords = tag }, null) </span>
-                                        }
+                }
+            </div>
 
-                                    }
-                                }
+        </div>
+    }
 
-                            </p>
-                        </div>
-                </div>
-            </li>
-        }
-    </ul>
     @Html.PagedListPager(Model, page =>
-                                Url.Action("Index","Articles", new { page = page, pageSize=5 }),
+                                Url.Action("Index","Articles", new { page = page, pageSize=10 }),
                     PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new PagedListRenderOptions
                     {
                         Display = PagedListDisplayMode.IfNeeded,

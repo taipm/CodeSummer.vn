@@ -17,14 +17,14 @@ namespace Web.Controllers
         ApplicationDbContext db = new ApplicationDbContext();
         public List<ArticleModel> PublishedArticles = new List<ArticleModel>();
 
-        public ArticlesController()
+        public ArticlesController():base()
         {
             PublishedArticles = db.GetArticles()
                 .Where(t => t.Published())
                 .ToList();
         }
 
-        public ActionResult Index(int page = 1, int pageSize = 5)
+        public ActionResult Index(int page = 1, int pageSize = PageSize)
         {
             var modelviews = Mappers.Mapper.ArticlesToViews(PublishedArticles);
             PagedList<ArticleView> views = new PagedList<ArticleView>(modelviews, page, pageSize);
@@ -37,7 +37,7 @@ namespace Web.Controllers
             return View(views);
         }
 
-        public ActionResult Search(string keyWords, int page = 1, int pageSize = 5)
+        public ActionResult Search(string keyWords, int page = 1, int pageSize = PageSize)
         {
             List<ArticleModel> books = new List<ArticleModel>();
 

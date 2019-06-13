@@ -207,6 +207,8 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Views\Shared\_BuyBook.cshtml" />
+    <Content Include="Views\Shared\_GoogleAnalytics.cshtml" />
+    <Content Include="Views\Shared\_ArticleItem.cshtml" />
     <None Include="Views\Shared\_Login.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -239,6 +241,8 @@
     <Content Include="Views\Articles\Index.cshtml" />
     <Content Include="Views\Articles\Details.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\_Summary.cshtml" />
+    <Content Include="Views\Shared\_Paypal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -19,8 +19,8 @@
             padding-right: 15px;
         }
 
-        /* Override the default bootstrap behavior where horizontal description lists 
-           will truncate terms that are too long to fit in the left column 
+        /* Override the default bootstrap behavior where horizontal description lists
+           will truncate terms that are too long to fit in the left column
         */
         .dl-horizontal dt {
             white-space: normal;
@@ -39,7 +39,18 @@
             font-size: 14px;
         }
     </style>
-    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>    
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142076226-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-142076226-1');
+    </script>
+
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -51,7 +62,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2019 - @DateTime.Now.Year - CodeSummer.vn | MỘT SẢN PHẨM CỦA - http://GooogleDev.Club</p>
+            <p>&copy; 2019 - @DateTime.Now.Year - CodeSummer.Club | MỘT SẢN PHẨM CỦA - http://GooogleDev.Club</p>
         </footer>
     </div>
 

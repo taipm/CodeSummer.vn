@@ -1,0 +1,101 @@
+﻿<script>
+    (function (w, d, s, g, js, fs) {
+        g = w.gapi || (w.gapi = {}); g.analytics = { q: [], ready: function (f) { this.q.push(f); } };
+        js = d.createElement(s); fs = d.getElementsByTagName(s)[0];
+        js.src = 'https://apis.google.com/js/platform.js';
+        fs.parentNode.insertBefore(js, fs); js.onload = function () { g.load('analytics'); };
+    }(window, document, 'script'));
+</script>
+
+<h1>GOOGLE ANALYTICS</h1>
+<div id="embed-api-auth-container"></div>
+<div id="chart-container"></div>
+<div id="view-selector-container"></div>
+<script>
+    //CX Google Auth Process
+    var client_id = "646310573291-bv77r3sihvcin89iffudmegaj9oojf32.apps.googleusercontent.com";
+    var client_secret = "Fg0mAY2IhiIcT9ZAxkrh2owk";
+
+    function CXAuth(parameters) {
+        var credits = { client_secret: client_secret, grant_type: 'refresh_token', refresh_token: '4/aAEz_8MOqDb4lp8ZxYC-9r9Rh_xMPNShvDj1FLWn1435czkFgVYy6hYwd7WvxawUuCBdFGwLjfqvMqAt_TMkBU8', client_id: client_id };
+        $.ajax({
+            type: "POST",
+            url: "https://www.googleapis.com/oauth2/v4/token",
+            contentType: "application/x-www-form-urlencoded",
+            data: credits,
+            dataType: "json",
+            success: function (credits) {
+                //console.log("CX Auth success");
+
+                gapi.analytics.auth.authorize({
+                    serverAuth: {
+                        "access_token": "ya29.GlsnB-BIvV5rD554ZQVCvxHLI11VS0V94t_14BsE24vYCSx6wWWJ0QpZGg3j1b-t8LEsZCS-KnJLbjw218uZSGT0uNBo3qrcKeJuR-IrwJ2I0kmXJTdmJTeBjITs",
+                        "expires_in": credits.expires_in,
+                        "token_type": credits.token_type
+                    },
+                    container: 'embed-api-auth-container', //Your auth div id in html
+                    clientid: client_id,
+                    clientsecret: client_secret
+                });
+
+            }, error: function (xhr, textStatus, errorThrown) {
+                console.log("cx ajax post error:" + xhr.statusText);
+            }
+        });
+    }
+    gapi.analytics.ready(function () {
+
+        /**
+         * Authorize the user immediately if the user has already granted access.
+         * If no access has been created, render an authorize button inside the
+         * element with the ID "embed-api-auth-container".
+         */
+        gapi.analytics.auth.authorize({
+            container: 'embed-api-auth-container',
+            clientid: client_id
+        });
+
+
+        /**
+         * Create a new ViewSelector instance to be rendered inside of an
+         * element with the id "view-selector-container".
+         */
+        var viewSelector = new gapi.analytics.ViewSelector({
+            container: 'view-selector-container'
+        });
+
+        // Render the view selector to the page.
+        viewSelector.execute();
+
+
+        /**
+         * Create a new DataChart instance with the given query parameters
+         * and Google chart options. It will be rendered inside an element
+         * with the id "chart-container".
+         */
+        var dataChart = new gapi.analytics.googleCharts.DataChart({
+            query: {
+                metrics: 'ga:sessions',
+                dimensions: 'ga:date',
+                'start-date': '30daysAgo',
+                'end-date': 'yesterday'
+            },
+            chart: {
+                container: 'chart-container',
+                type: 'LINE',
+                options: {
+                    width: '100%'
+                }
+            }
+        });
+
+
+        /**
+         * Render the dataChart on the page whenever a new view is selected.
+         */
+        viewSelector.on('change', function (ids) {
+            dataChart.set({ query: { ids: ids } }).execute();
+        });
+
+    });
+</script>
