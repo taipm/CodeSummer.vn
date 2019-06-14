@@ -4,3 +4,9 @@ C:\GitHub\GoogleDev.Club\Libraries\CafeT.Time\obj\Release\CafeT.Time.csprojAssem
 C:\GitHub\GoogleDev.Club\Libraries\CafeT.Time\obj\Release\CafeT.Time.csproj.CoreCompileInputs.cache
 C:\GitHub\GoogleDev.Club\Libraries\CafeT.Time\obj\Release\CafeT.Time.dll
 C:\GitHub\GoogleDev.Club\Libraries\CafeT.Time\obj\Release\CafeT.Time.pdb
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Time\bin\Release\CafeT.Time.dll
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Time\bin\Release\CafeT.Time.pdb
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Time\obj\Release\CafeT.Time.csprojAssemblyReference.cache
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Time\obj\Release\CafeT.Time.csproj.CoreCompileInputs.cache
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Time\obj\Release\CafeT.Time.dll
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Time\obj\Release\CafeT.Time.pdb

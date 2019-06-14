@@ -37,6 +37,36 @@ namespace Web.Controllers
             return View(views);
         }
 
+        public ActionResult TestAjax()
+        {
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_ajaxTest");
+            }
+            return View("_ajaxTest");
+        }
+
+        public ActionResult GetRelatedArticles(string keyWords, int page = 1, int pageSize = PageSize)
+        {
+            List<ArticleModel> books = new List<ArticleModel>();
+
+            books = PublishedArticles
+                .Where(t => t.Title.IndexOf(keyWords, StringComparison.CurrentCultureIgnoreCase) >= 0)
+                .GroupBy(t => t.Title)
+                .Select(group => group.First()).ToList();
+
+            PagedList<ArticleModel> views = new PagedList<ArticleModel>(books, page, pageSize);
+
+            ViewBag.Count = books.Count();
+            ViewBag.KeyWords = keyWords;
+
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_RelatedArticles", views);
+            }
+            return View("_RelatedArticles", views);
+        }
+
         public ActionResult Search(string keyWords, int page = 1, int pageSize = PageSize)
         {
             List<ArticleModel> books = new List<ArticleModel>();

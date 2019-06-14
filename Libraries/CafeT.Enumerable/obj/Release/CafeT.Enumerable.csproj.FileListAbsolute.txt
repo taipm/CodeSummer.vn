@@ -5,3 +5,10 @@ C:\GitHub\GoogleDev.Club\Libraries\CafeT.Enumerable\obj\Release\CafeT.Enumerable
 C:\GitHub\GoogleDev.Club\Libraries\CafeT.Enumerable\obj\Release\CafeT.Enumerable.csproj.CoreCompileInputs.cache
 C:\GitHub\GoogleDev.Club\Libraries\CafeT.Enumerable\obj\Release\CafeT.Enumerable.dll
 C:\GitHub\GoogleDev.Club\Libraries\CafeT.Enumerable\obj\Release\CafeT.Enumerable.pdb
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Enumerable\bin\Release\CafeT.Enumerable.dll.config
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Enumerable\bin\Release\CafeT.Enumerable.dll
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Enumerable\bin\Release\CafeT.Enumerable.pdb
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Enumerable\obj\Release\CafeT.Enumerable.csprojAssemblyReference.cache
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Enumerable\obj\Release\CafeT.Enumerable.csproj.CoreCompileInputs.cache
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Enumerable\obj\Release\CafeT.Enumerable.dll
+C:\GitHub\CodeSummer.vn\Libraries\CafeT.Enumerable\obj\Release\CafeT.Enumerable.pdb

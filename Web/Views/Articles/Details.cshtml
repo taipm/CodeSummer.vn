@@ -83,13 +83,23 @@
             }
         </style>
     </noscript>
-    <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $.get('@Url.Action("GetRelatedArticles", "Articles", new { keywords = Model.Tags[0] })', function (data) {
+            $('#divRelated').html(data);
+        });
+    </script>
+
     <title>@Model.Title</title>
     <meta name="keywords" content="@Model.MetaKeywords" />
     <meta name="description" content="@Model.MetaDescription" />
     <meta property="fb:app_id" content="402944790432786" />
     <meta property="fb:admins" content="ENIn6YdZr1L" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.3&appId=1544889778981563&autoLogAppEvents=1"></script>
+
 </head>
 <body>
     <div class="row">
@@ -107,7 +117,7 @@
                 <div class="col-md-8">
                     @Html.Raw(Model.Description.Replace("\n", "<br />"))
                 </div>
-                
+
             </div>
             <p class="container">
 
@@ -125,9 +135,27 @@
                 {
                     @Html.Raw(Model.Content.Replace("\n", "<br />"))
                 }
+            </p>
+            <p>
+                @if (Model.Tags != null && Model.Tags.Count() > 0)
+                {
+                    @Html.Raw("Từ khóa: ")
+                    foreach (string tag in Model.Tags)
+                    {
+                        if (tag.Length > 0)
+                        {
+                            <span class="text-danger">@Html.ActionLink(tag + "; ", "Search", "Articles", new { keyWords = tag }, null) </span>
+                        }
 
+                    }
+                }
+
+            </p>
+            <p>
                 @Html.Partial("_BuyBook", new BuyBookView(Model.Title, Model.BuyBookUrl, Model.BookImageUrl))
             </p>
+            
+           
 
 
             <div id="fb-root"></div>
@@ -149,8 +177,9 @@
         <div class="col-md-4">
 
             @Html.Raw("Ngày: " + Model.CreatedDate) | @Html.Raw("Tác giả: " + Model.CreatedBy)<br />
-            
+
             @*@Html.Raw("Views: " + Model.CountViews)*@
+            <div id="divRelated"></div>
         </div>
     </div>
     @if (Model.EditLink != null)
@@ -161,9 +190,11 @@
         </p>
     }
 
-        <div class="fb-comments" data-href="http://codesummer.vn/articles/details/@Model.GenerateSlug()" data-width="" data-numposts="5"></div>
+    <div class="fb-comments" data-href="http://codesummer.vn/articles/details/@Model.GenerateSlug()" data-width="" data-numposts="5"></div>
+
+    @*<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>*@
     
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+
 </body>
 </html>
 
